@@ -5,7 +5,14 @@ import { getSheetContent } from "@/lib/getSheetContent";
 
 async function Experiment() {
     const content = await getSheetContent("About");
-    const experiences = JSON.parse(content.exper_list);
+
+    let experiences = [];
+    try {
+        experiences = JSON.parse(content.exper_list);
+    } catch (error) {
+        console.error("Lỗi định dạng JSON tại exper_list:", error);
+        experiences = [];
+    }
 
     return (
         <div className="py-20 pb-30">

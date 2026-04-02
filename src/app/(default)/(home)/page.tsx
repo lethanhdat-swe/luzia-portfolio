@@ -1,4 +1,3 @@
-import CTA from "@/app/(default)/(home)/components/CTA/CTA";
 import FAQs from "@/app/(default)/(home)/components/FAQs/FAQs";
 import Hero from "@/app/(default)/(home)/components/Hero/Hero";
 import Info from "@/app/(default)/(home)/components/Info/Info";
@@ -11,7 +10,6 @@ async function HomePage() {
             <Info withBg />
             <Service />
             <FAQs />
-            {/* <CTA /> */}
         </div>
     );
 }

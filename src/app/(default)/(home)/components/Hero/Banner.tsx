@@ -36,6 +36,7 @@ function Banner() {
     const scale = 1 + scrollY * 0.00005; // Zoom in cực nhẹ
     const translateY = scrollY * 0.2; // Parallax rất nhẹ
     const opacity = 1 - scrollY * 0.0005; // Fade out chậm
+    console.log(thumbnail);
 
     return (
         <div className="static h-[50vh] w-full sm:h-[80vh] xl:absolute xl:bottom-0 xl:left-1/2 xl:h-[90vh] xl:-translate-x-1/2">

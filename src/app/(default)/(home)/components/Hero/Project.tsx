@@ -14,6 +14,7 @@ export default function Project() {
         // fetch content từ Sheet
         async function fetchContent() {
             const data = await getSheetContent("Home");
+
             setContent(data);
         }
 
