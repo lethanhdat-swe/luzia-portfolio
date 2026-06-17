@@ -24,9 +24,10 @@ function Navlist() {
 
     if (!content) return;
 
-    const menus = [
-        { title: "Trang chủ", href: "/" },
-        { title: "Giới thiệu", href: "/about" },
+    // Bổ sung type: "internal" để logic renderLinks chạy đúng thẻ <Link> vốn có của bạn
+    const menus: LinkItem[] = [
+        { title: "Trang chủ", href: "/", type: "internal" },
+        { title: "Giới thiệu", href: "/about", type: "internal" },
     ];
 
     const contacts: LinkItem[] = [
@@ -44,11 +45,6 @@ function Navlist() {
             href: `mailto:${content.contact_email}`,
             type: "email",
         },
-    ];
-
-    const policies = [
-        { title: "Chính sách bảo mật", href: "#" },
-        { title: "Điều khoản sử dụng", href: "#" },
     ];
 
     const renderLinks = (items: LinkItem[]) =>
@@ -83,16 +79,16 @@ function Navlist() {
         });
 
     return (
-        <div className="grid grid-cols-1 gap-8 font-medium sm:grid-cols-2 lg:grid-cols-3">
+        /* Sử dụng flex để cố định khoảng cách giữa 2 cụm lớn, đẩy toàn bộ menu sát lề phải */
+        <div className="flex flex-col gap-12 sm:flex-row sm:gap-16 lg:gap-24 font-medium">
             {/* Menus */}
-            <div className="flex flex-col gap-4">{renderLinks(menus)}</div>
+            <div className="flex flex-col gap-4 min-w-[100px]">
+                {renderLinks(menus)}
+            </div>
 
-            {/* Contacts */}
-            <div className="flex flex-col gap-4">{renderLinks(contacts)}</div>
-
-            {/* Policies */}
-            <div className="col-span-2 flex flex-col gap-4 lg:col-span-1">
-                {renderLinks(policies)}
+            {/* Contacts - Chuyển sang bố cục 2 cột để dàn trải không gian dàn ngang */}
+            <div className="grid grid-cols-2 gap-x-12 gap-y-4 min-w-[200px]">
+                {renderLinks(contacts)}
             </div>
         </div>
     );
