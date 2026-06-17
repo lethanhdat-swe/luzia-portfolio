@@ -65,6 +65,7 @@ function Service() {
                             direction="up"
                             delay={index * 0.12}
                             threshold={0.1}
+                            className="h-full" 
                         >
                             <ServiceItem
                                 title={service.title}
