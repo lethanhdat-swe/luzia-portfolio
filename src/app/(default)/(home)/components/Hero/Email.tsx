@@ -14,9 +14,9 @@ async function Email() {
                 </p>
             </ScrollAnimate>
             <ScrollAnimate direction="left" delay={0.2}>
-                <Link href={"/contact"}>
+                <Link href={"/about"}>
                     <Button className="text-md bg-gold shadow-gold cursor-pointer rounded-2xl p-6 font-semibold text-white transition-all hover:scale-105 hover:shadow-xl">
-                        Liên hệ ngay
+                        Tìm hiểu thêm
                     </Button>
                 </Link>
             </ScrollAnimate>

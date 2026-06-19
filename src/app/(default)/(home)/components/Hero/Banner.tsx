@@ -26,7 +26,13 @@ function Banner() {
     useEffect(() => {
         const http = async () => {
             const content = await getSheetContent("Home");
-            setThumbnail(content.hero_avatar);
+            if (content?.hero_avatar) {
+                // Thực hiện convert ngay tại đây
+                const directLink = convertDriveLinkToDirect(
+                    content.hero_avatar,
+                );
+                setThumbnail(directLink as string);
+            }
         };
 
         http();
@@ -36,7 +42,6 @@ function Banner() {
     const scale = 1 + scrollY * 0.00005; // Zoom in cực nhẹ
     const translateY = scrollY * 0.2; // Parallax rất nhẹ
     const opacity = 1 - scrollY * 0.0005; // Fade out chậm
-    console.log(thumbnail);
 
     return (
         <div className="static h-[50vh] w-full sm:h-[80vh] xl:absolute xl:bottom-0 xl:left-1/2 xl:h-[90vh] xl:-translate-x-1/2">
@@ -52,9 +57,9 @@ function Banner() {
                 }}
             >
                 <div className="absolute bottom-0 h-full w-full">
-                    {thumbnail && convertDriveLinkToDirect(thumbnail) && (
+                    {thumbnail && (
                         <Image
-                            src={convertDriveLinkToDirect(thumbnail) || ""}
+                            src={thumbnail}
                             alt="Le Thanh Dat"
                             fill
                             priority
