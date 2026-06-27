@@ -35,6 +35,7 @@ function Navlist() {
         { title: "Zalo", href: content.zalo_link, type: "external" },
         { title: "Facebook", href: content.facebook_link, type: "external" },
         { title: "Instagram", href: content.ig_link, type: "external" },
+        { title: "LinkedIn", href: content.linkedin_link, type: "external" },
         {
             title: "Hotline",
             href: `tel:${content.phone_number}`,
@@ -80,14 +81,14 @@ function Navlist() {
 
     return (
         /* Sử dụng flex để cố định khoảng cách giữa 2 cụm lớn, đẩy toàn bộ menu sát lề phải */
-        <div className="flex flex-col gap-12 sm:flex-row sm:gap-16 lg:gap-24 font-medium">
+        <div className="flex flex-col gap-12 font-medium sm:flex-row sm:gap-16 lg:gap-24">
             {/* Menus */}
-            <div className="flex flex-col gap-4 min-w-[100px]">
+            <div className="flex min-w-[100px] flex-col gap-4">
                 {renderLinks(menus)}
             </div>
 
             {/* Contacts - Chuyển sang bố cục 2 cột để dàn trải không gian dàn ngang */}
-            <div className="grid grid-cols-2 gap-x-12 gap-y-4 min-w-[200px]">
+            <div className="grid min-w-[200px] grid-cols-2 gap-x-12 gap-y-4">
                 {renderLinks(contacts)}
             </div>
         </div>
